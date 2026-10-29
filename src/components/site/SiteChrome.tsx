@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, type LinkProps } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, MessageCircle, Phone, Mail, Instagram } from "lucide-react";
 import { CONTACT, NAV } from "@/lib/site";
@@ -13,7 +13,7 @@ export function Logo() {
   );
 }
 
-export function GoldButton({ children, href, to, variant = "solid" }: { children: ReactNode; href?: string; to?: string; variant?: "solid" | "outline" | "dark" }) {
+export function GoldButton({ children, href, to, variant = "solid" }: { children: ReactNode; href?: string; to?: LinkProps["to"]; variant?: "solid" | "outline" | "dark" }) {
   const cls = {
     solid: "bg-gold text-forest-deep hover:bg-ivory",
     outline: "border border-ivory/70 text-ivory hover:bg-ivory hover:text-forest-deep",
