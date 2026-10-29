@@ -54,7 +54,7 @@ function Home() {
             <Link to="/tours" className="text-sm font-semibold text-primary hover:underline">View all private tours →</Link>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {[TOURS[0], TOURS[1]].map((t) => <TourCardView key={t.slug} tour={t} />)}
+            {TOURS.slice(0, 2).map((t) => <TourCardView key={t.slug} tour={t} />)}
             <article className="group flex flex-col overflow-hidden rounded-md bg-card shadow-sm ring-1 ring-border">
               <div className="aspect-[4/3] overflow-hidden"><img src={safari} alt="Elephants in the bushveld" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
               <div className="flex flex-1 flex-col p-6">

@@ -28,7 +28,7 @@ const STOPS = [
   { time: "Optional", title: "Kalk Bay or Muizenberg", text: "Coffee, lunch or a stroll on the way home, if time allows." },
 ];
 
-const FAQ = [
+const FAQ: [string, string][] = [
   ["How long is the tour?", "Approximately 8–9 hours depending on pickup point, traffic and how long you spend at each stop."],
   ["Can the itinerary be customised?", "Yes. Stops and their order can be adjusted when you request your quote."],
   ["Is this a private tour?", "Yes — only your party travels in the vehicle with your guide."],
@@ -90,7 +90,7 @@ function Peninsula() {
             <div id="faq">
               <h2 className="mb-6 text-4xl">Frequently asked questions</h2>
               <Accordion type="single" collapsible>
-                {FAQ.map(([q, a]) => (
+                {FAQ.map(([q, a = ""]) => (
                   <AccordionItem key={q} value={q}>
                     <AccordionTrigger className="text-base">{q}</AccordionTrigger>
                     <AccordionContent className="text-base text-muted-foreground">{a}</AccordionContent>

@@ -15,7 +15,7 @@ const EXPERIENCES = [
 ];
 
 export const Route = createFileRoute("/plan-my-trip")({
-  validateSearch: (s: Record<string, unknown>) => ({ experience: typeof s.experience === "string" ? s.experience : undefined }),
+  validateSearch: (s: Record<string, unknown>): { experience?: string } => ({ experience: typeof s["experience"] === "string" ? (s["experience"] as string) : undefined }),
   head: () => ({
     meta: [
       { title: "Plan My Trip — Request a Quote | RA2 Travel and Tours" },
