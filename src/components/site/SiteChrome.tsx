@@ -3,6 +3,7 @@ import { useState, type ReactNode } from "react";
 import { Menu, X, MessageCircle, Phone, Mail, Instagram } from "lucide-react";
 import { CONTACT, NAV } from "@/lib/site";
 import ra2Logo from "@/assets/Ra2logo.png";
+import heroVideo from "@/assets/herovid.mp4";
 
 export function Logo() {
   return (
@@ -110,9 +111,21 @@ export function WhatsAppFloat() {
 export function PageHero({ eyebrow, title, intro, image, children }: { eyebrow: string; title: ReactNode; intro: string; image: string; children?: ReactNode }) {
   return (
     <section className="relative isolate flex min-h-[60vh] items-end overflow-hidden">
-      <img src={image} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-      <div className="hero-scrim absolute inset-0 -z-10" />
-      <div className="container-site pb-16 pt-32 text-ivory">
+      <img src={image} alt="" className="absolute inset-0 z-0 h-full w-full object-cover md:hidden" />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={image}
+        aria-hidden="true"
+        className="absolute inset-0 z-0 hidden h-full w-full object-cover md:block"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+      <div className="hero-scrim absolute inset-0 z-10" />
+      <div className="container-site relative z-20 pb-16 pt-32 text-ivory">
         <p className="eyebrow mb-4">{eyebrow}</p>
         <h1 className="max-w-3xl text-5xl md:text-7xl">{title}</h1>
         <p className="mt-5 max-w-xl text-lg text-ivory/90">{intro}</p>

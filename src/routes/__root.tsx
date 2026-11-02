@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer, WhatsAppFloat } from "@/components/site/SiteChrome";
+import { LoadingScreen } from "@/components/site/LoadingScreen";
 
 function NotFoundComponent() {
   return (
@@ -117,6 +118,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <LoadingScreen />
       <Header />
       <main>
         <Outlet />

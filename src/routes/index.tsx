@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Compass, MapPinned, HeartHandshake, Instagram } from "lucide-react";
 import hero from "@/assets/hero.jpg";
+import heroVideo from "@/assets/herovid.mp4";
 import peninsula from "@/assets/peninsula.jpg";
 import winelands from "@/assets/winelands.jpg";
 import safari from "@/assets/safari.jpg";
@@ -30,9 +31,21 @@ function Home() {
   return (
     <>
       <section className="relative isolate flex min-h-[88vh] items-end overflow-hidden">
-        <img src={hero} alt="Chapman's Peak Drive at sunset" width={1920} height={1088} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="hero-scrim absolute inset-0 -z-10" />
-        <div className="container-site pb-20 pt-40 text-ivory">
+        <img src={hero} alt="Chapman's Peak Drive at sunset" width={1920} height={1088} className="absolute inset-0 z-0 h-full w-full object-cover md:hidden" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={hero}
+          aria-hidden="true"
+          className="absolute inset-0 z-0 hidden h-full w-full object-cover md:block"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="hero-scrim absolute inset-0 z-10" />
+        <div className="container-site relative z-20 pb-20 pt-40 text-ivory">
           <p className="eyebrow mb-5">RA2 Travel and Tours · Cape Town</p>
           <h1 className="max-w-4xl text-5xl md:text-8xl">Your South Africa.<br /><em className="font-normal">Beautifully personal.</em></h1>
           <p className="mt-6 max-w-xl text-lg text-ivory/90">Private Cape Town tours, safaris and tailor-made journeys.</p>
