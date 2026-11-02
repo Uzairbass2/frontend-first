@@ -6,9 +6,12 @@ export function LoadingScreen() {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
-    setIsFadingOut(true);
-    const timeout = window.setTimeout(() => setIsMounted(false), 500);
-    return () => window.clearTimeout(timeout);
+    const fadeTimeout = window.setTimeout(() => setIsFadingOut(true), 1500);
+    const removeTimeout = window.setTimeout(() => setIsMounted(false), 2000);
+    return () => {
+      window.clearTimeout(fadeTimeout);
+      window.clearTimeout(removeTimeout);
+    };
   }, []);
 
   if (!isMounted) return null;
