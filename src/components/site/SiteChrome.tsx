@@ -2,13 +2,12 @@ import { Link, type LinkProps } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, MessageCircle, Phone, Mail, Instagram } from "lucide-react";
 import { CONTACT, NAV } from "@/lib/site";
+import ra2Logo from "@/assets/Ra2logo.png";
 
 export function Logo() {
-  // Placeholder wordmark until the approved transparent RA2 logo file is supplied.
   return (
-    <Link to="/" className="flex flex-col leading-none text-ivory" aria-label="RA2 Travel and Tours home">
-      <span className="font-serif text-3xl font-semibold tracking-wide">RA2</span>
-      <span className="mt-0.5 text-[0.65rem] uppercase tracking-[0.25em] text-gold">Travel and Tours</span>
+    <Link to="/" className="flex shrink-0 items-center" aria-label="RA2 Travel and Tours home">
+      <img src={ra2Logo} alt="" className="size-28 object-contain" />
     </Link>
   );
 }
@@ -28,7 +27,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 bg-forest">
-      <div className="container-site flex h-20 items-center justify-between gap-6">
+      <div className="container-site flex h-32 items-center justify-between gap-6">
         <Logo />
         <nav className="hidden items-center gap-7 lg:flex">
           {NAV.map((n) => (

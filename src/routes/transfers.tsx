@@ -1,59 +1,164 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
+import sedan from "@/assets/Fleet (9).JPG";
+import mercedesC180 from "@/assets/Fleet (2).JPG";
+import toyotaRumion from "@/assets/Fleet (4).JPG";
+import mercedesVClass from "@/assets/Fleet (10).JPG";
+import hyundaiStaria from "@/assets/Fleet (3).JPG";
+import toyotaQuantum from "@/assets/Fleet (1).JPG";
+import toyotaQuantumGl from "@/assets/Fleet (6).JPG";
+import toyotaHiace from "@/assets/Fleet (8).JPG";
+import mercedesSprinter from "@/assets/Fleet (5).JPG";
+import bus from "@/assets/Fleet (7).JPG";
 import { CONTACT } from "@/lib/site";
 import { GoldButton, PageHero } from "@/components/site/SiteChrome";
 
 export const Route = createFileRoute("/transfers")({
   head: () => ({
     meta: [
-      { title: "Transfers & Chauffeur Service, Cape Town — RA2 Travel and Tours" },
-      { name: "description", content: "Airport transfers and private chauffeur service in Cape Town, with vehicle options for every group." },
-      { property: "og:title", content: "Transfers & Chauffeur — RA2" },
-      { property: "og:description", content: "Transport-only enquiries, separate from guided touring." },
+      { title: "Our Fleet — Transfers & Chauffeur Service | RA2 Travel and Tours" },
+      {
+        name: "description",
+        content:
+          "Explore RA2's sedan, van and coach options for private Cape Town transfers and group travel.",
+      },
+      { property: "og:title", content: "Our Fleet — RA2 Travel and Tours" },
+      {
+        property: "og:description",
+        content: "Find a comfortable ride for your Cape Town transfer or group journey.",
+      },
     ],
   }),
   component: Page,
 });
 
 const FLEET = [
-  { name: "Mercedes-Benz V-Class", text: "A premium, spacious people mover for extra comfort.", pax: "Confirm configuration", luggage: "Confirmed with your quote" },
-  { name: "Hyundai Staria", text: "Spacious and comfortable, ideal for families and small groups.", pax: "Confirm configuration", luggage: "Confirmed with your quote" },
-  { name: "Sedan", text: "A refined option for up to 3 guests with luggage.", pax: "Up to 3", luggage: "Confirmed with your quote" },
-  { name: "SUV", text: "Comfortable and versatile for a range of travel needs.", pax: "Confirm configuration", luggage: "Confirmed with your quote" },
+  {
+    name: "Standard Sedan",
+    capacity: "Recommended for 1–3 guests",
+    description: "Everyday comfort for private transfers and smaller journeys.",
+    image: sedan,
+  },
+  {
+    name: "Mercedes-Benz C180",
+    capacity: "Private travel for 1–3 guests",
+    description: "A refined sedan option for a comfortable private trip.",
+    image: mercedesC180,
+  },
+  {
+    name: "Toyota Rumion",
+    capacity: "Up to 6 guests",
+    description: "A compact MPV suited to families and small groups.",
+    image: toyotaRumion,
+  },
+  {
+    name: "Mercedes-Benz V-Class",
+    capacity: "Up to 6 guests",
+    description: "Premium passenger travel with a spacious cabin.",
+    image: mercedesVClass,
+  },
+  {
+    name: "Hyundai Staria",
+    capacity: "Up to 8 guests + driver",
+    description: "An executive-style people mover for small groups.",
+    image: hyundaiStaria,
+  },
+  {
+    name: "Toyota Quantum",
+    capacity: "Up to 10 guests + driver",
+    description: "A roomy option for airport transfers and group travel.",
+    image: toyotaQuantum,
+  },
+  {
+    name: "Toyota Quantum GL",
+    capacity: "13 passengers + driver",
+    description: "Extra capacity for group transfers and private tours.",
+    image: toyotaQuantumGl,
+  },
+  {
+    name: "Toyota Hiace GL",
+    capacity: "13 guests + driver",
+    description: "Classic group transport with a spacious passenger cabin.",
+    image: toyotaHiace,
+  },
+  {
+    name: "Mercedes-Benz Sprinter",
+    capacity: "20 guests + driver",
+    description: "A larger vehicle for group journeys and transfers.",
+    image: mercedesSprinter,
+  },
+  {
+    name: "30-Seater Bus",
+    capacity: "Confirm available guest seats when booking",
+    description: "A coach option for larger groups and shared journeys.",
+    image: bus,
+  },
 ];
 
 function Page() {
   return (
     <>
-      <PageHero eyebrow="Transfers & Chauffeur" title="Arrive the way you'd like to travel." intro="Airport transfers, point-to-point trips and hourly chauffeur service — transport only, no guiding." image={hero}>
+      <PageHero
+        eyebrow="Transfers & Chauffeur"
+        title="The right ride for the road ahead."
+        intro="From a private sedan to a spacious group vehicle, explore the fleet for your Cape Town transfer or journey."
+        image={hero}
+      >
         <GoldButton to="/plan-my-trip">Request a Transfer Quote</GoldButton>
       </PageHero>
       <section id="fleet" className="scroll-mt-24 py-20">
         <div className="container-site">
-          <p className="eyebrow mb-3">Our Fleet</p>
-          <h2 className="mb-10 text-4xl md:text-5xl">Comfort for every journey.</h2>
-          <div className="overflow-x-auto rounded-md ring-1 ring-border">
-            <table className="w-full min-w-[40rem] bg-card text-left">
-              <thead className="bg-forest text-ivory"><tr>{["Vehicle", "Description", "Passengers", "Luggage"].map((h) => <th key={h} className="px-5 py-4 text-sm font-semibold">{h}</th>)}</tr></thead>
-              <tbody>
-                {FLEET.map((f) => (
-                  <tr key={f.name} className="border-t border-border">
-                    <td className="px-5 py-4 font-serif text-xl">{f.name}</td>
-                    <td className="px-5 py-4 text-muted-foreground">{f.text}</td>
-                    <td className="px-5 py-4 text-sm">{f.pax}</td>
-                    <td className="px-5 py-4 text-sm">{f.luggage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="mb-12 max-w-2xl">
+            <p className="eyebrow mb-3">Our Fleet</p>
+            <h2 className="text-4xl md:text-5xl">Find your seat.</h2>
+            <p className="mt-4 text-muted-foreground">
+              Browse the vehicles and their illustrated seating information. Tell us about your
+              group and luggage when you enquire, and we can help find the right fit.
+            </p>
           </div>
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+            {FLEET.map((vehicle) => (
+              <article
+                key={vehicle.name}
+                className="overflow-hidden rounded-md bg-card ring-1 ring-border"
+              >
+                <div className="aspect-[2/3] bg-muted">
+                  <img
+                    src={vehicle.image}
+                    alt={`${vehicle.name} vehicle and seating information`}
+                    loading="lazy"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="space-y-3 p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+                    {vehicle.capacity}
+                  </p>
+                  <h3 className="font-serif text-2xl text-foreground">{vehicle.name}</h3>
+                  <p className="text-sm text-muted-foreground">{vehicle.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-muted-foreground">
+            Vehicle and seating visuals are illustrative. Vehicle availability, seating
+            configuration and luggage fit are confirmed when booking.
+          </p>
         </div>
       </section>
       <section className="bg-forest py-20 text-ivory">
         <div className="container-site text-center">
-          <h2 className="text-4xl md:text-5xl">Get in touch on WhatsApp.</h2>
-          <p className="mt-3 text-ivory/80">Chat with us on WhatsApp or send your enquiry and we'll get back to you.</p>
-          <div className="mt-8"><GoldButton href={CONTACT.whatsapp}>WhatsApp {CONTACT.phone}</GoldButton></div>
+          <p className="eyebrow mb-3">Transfers & chauffeur</p>
+          <h2 className="text-4xl md:text-5xl">Ready to plan your journey?</h2>
+          <p className="mx-auto mt-3 max-w-xl text-ivory/80">
+            Share your travel date, passenger count and luggage details for a tailored quote.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <GoldButton to="/plan-my-trip">Request a Quote</GoldButton>
+            <GoldButton href={CONTACT.whatsapp} variant="outline">
+              WhatsApp {CONTACT.phone}
+            </GoldButton>
+          </div>
         </div>
       </section>
     </>
